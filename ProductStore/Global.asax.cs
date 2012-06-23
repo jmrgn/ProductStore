@@ -21,6 +21,12 @@ namespace ProductStore
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            ConfigureApi(GlobalConfiguration.Configuration);
+        }
+
+        private void ConfigureApi(HttpConfiguration httpConfiguration)
+        {
+            httpConfiguration.DependencyResolver = new SimpleContainer();
         }
     }
 }
